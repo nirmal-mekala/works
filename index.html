@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- siteify script + stylesheet -->
+  <script
+    type="module"
+    crossorigin
+    src="https://cdn.jsdelivr.net/gh/nirmal-mekala/siteify@cdn/siteify.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/nirmal-mekala/siteify@cdn/assets/siteify.css"
+  />
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- hide body on init -->
+  <style>
+  body.hidden {
+    visibility: hidden;
+    }
+  </style>
+
+  <style>
+    .resume-section {
+      padding: 0 var(--spacing-container-x);
+    }
+
+    .resume body {
+      line-height: 1.25;
+    }
+
+    .resume-section-top-header {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      font-size: 1.125rem;
+    }
+
+    .resume-section-sub-header {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      font-variation-settings: var(--font-variation-slant-full), var(--font-variation-cursive);
+    }
+
+    .resume-subsection {
+      margin-bottom: 1.25rem;
+    }
+
+    .resume h2 {
+      margin: 0.5rem 0px 0px 0px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-varation-settings: var(--font-variation-mono)
+    }
+
+    .resume h1 {
+      font-size: 1.5rem;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .resume ol, .resume ul, .resume li {
+      margin: 0px;
+      font-size: 0.875rem;
+    }
+
+    .resume-contact > span {
+      font-size: 0.875rem;
+    }
+
+    .resume-header {
+      margin-bottom: 1.25rem;
+    }
+
+    .skills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .skills code {
+      border: none;
+      font-size: 0.75rem;
+    }
+
+  </style>
+
+  <!-- Alpine -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <script>
+    const resumeData = {
+      info: {
+        website: 'nirmal.meka.la',
+        email: 'nirmal@meka.la',
+        address: 'Minneapolis, MN',
+        phone: prompt('Phone number redacted for privacy, enter in (###) ###-#### format')
+      },
+      experiences: [
+        {
+          title: 'Software Engineer',
+          period: 'August 2022–Present',
+          employer: 'Clockwork',
+          location: 'Minneapolis',
+          bullets: [
+            `Leveraged technical skillset to deliver full-stack digital solutions using Angular, React, Vue, Tailwind, 11ty,
+Craft, Strapi, Java, Node, and Postgres, often adopting new technologies.`,
+            `Architected and developed a scalable, Angular-based web application managing complex integrations with
+a data-heavy reporting backend and a dynamic content management system.`,
+            `Demonstrated expertise in delivering successful projects within scope and under budget by combining
+problem-solving skills with a deep understanding of clients’ needs.`,
+            `Fostered strong client relationships through clear, professional, and responsive communication.`
+          ]
+        },
+        {
+          title: 'Full-Stack Software Engineer',
+          period: 'August 2021–August 2022',
+          employer: 'Measurement Technology Laboratories ',
+          location: 'Minneapolis',
+          bullets: [
+            `Designed, reviewed, and implemented software features across a full tech stack using G and SQL.`,
+            `Interfaced with clients to create custom flat file reports.`,
+            `Refactored a flagging feature on schedule.`,
+          ]
+        }
+      ],
+      featuredProjects: [
+        {
+          title: 'Interactive Sales Reporting Platform',
+          stack: 'Angular, Java Spring, Strapi CMS',
+          bullets: [
+            `Angular application that allows users to view and create presentations and emails from automotive sales
+data via a Java Spring backend for sales data and a Strapi CMS layer for user data.`,
+            `Designed a polymorphic variant pattern to allow report sources with different endpoints, contracts, and 
+functionality to share componentry and logic.`,
+            `Architected report view page which allows users to customize data queries, conditionally format results, and 
+share their custom reports with other users.`,
+            `Enabled fluid rendering of thousands of rows of data via caching and custom virtual scroll feature.`,
+            `Built and extended APIs in Java Spring to support report fetching.`
+          ]
+        }
+      ],
+      education: [
+        {
+          title: 'The Odin Project',
+          period: '2020–2021',
+          location: 'Online',
+          description: 'Full-stack web development curriculum'
+        },
+        {
+          title: 'Bethlehem College and Seminary',
+          period: '2018–2020',
+          location: 'Minneapolis',
+          description: 'M.A. Exegesis and Theology • GPA: 3.93'
+        },
+
+        {
+          title: 'University of Minnesota',
+          period: '2011–2014',
+          location: 'Minneapolis',
+          description: 'B.S. Chemistry • GPA: 3.63 '
+        },
+      ],
+      skills: [
+        'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Angular', 'React', 'Vue', 'Tailwind', 'Node', 'Postgres', 'Git',
+        'Strapi', 'Craft', 'Java Spring', 'G'
+      ]
+    }
+
+  </script>
+  <title>Nirmal Mekala</title>
+</head>
+
+<body class="hidden">
+  <div id="page" class="full-width" x-data="{ resumeData }">
+    <main class="resume">
+
+      <section class="resume-section resume-header">
+        <div>
+          <h1>Nirmal Mekala (he/him)</h1>
+        </div>
+        <div class="resume-contact">
+          <span x-text="resumeData.info.website"></span>
+          <span> • </span>
+          <span x-text="resumeData.info.email"></span>
+          <span> • </span>
+          <span x-text="resumeData.info.phone"></span>
+          <span> • </span>
+          <span x-text="resumeData.info.address"></span>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Experiences</h2>
+        <template x-for="experience in resumeData.experiences">
+          <div class="resume-subsection">
+            <div class="resume-section-top-header">
+              <div x-text="experience.title"></div>
+              <div x-text="experience.period"></div>
+            </div>
+            <div class="resume-section-sub-header">
+              <div x-text="experience.employer"></div>
+              <div x-text="experience.location"></div>
+            </div>
+            <ul>
+              <template x-for="bullet in experience.bullets">
+                <li x-text="bullet"></li>
+              </template>
+            </ul>
+          </div>
+        </template>
+      </section>
+
+      <section class="resume-section">
+        <h2>Featured Projects</h2>
+        <template x-for="project in resumeData.featuredProjects">
+          <div class="resume-subsection">
+            <div class="resume-section-top-header">
+              <div x-text="project.title"></div>
+              <div x-text="project.stack"></div>
+            </div>
+            <ul>
+              <template x-for="bullet in project.bullets">
+                <li x-text="bullet"></li>
+              </template>
+            </ul>
+          </div>
+        </template>
+      </section>
+
+      <section class="resume-section">
+        <h2>Education</h2>
+        <template x-for="education in resumeData.education">
+          <div class="resume-subsection">
+            <div class="resume-section-top-header">
+              <div x-text="education.title"></div>
+              <div x-text="education.period"></div>
+            </div>
+            <div class="resume-section-sub-header">
+              <div x-text="education.description"></div>
+              <div x-text="education.location"></div>
+            </div>
+          </div>
+        </template>
+      </section>
+
+      <!--
+      <section class="resume-section">
+        <h2>Skills</h2>
+        <div class="skills">
+          <template x-for="skill in resumeData.skills">
+             <code x-text="skill"></code>
+          </template>
+        </div>
+      </section>
+      -->
+
+    </main>
+  </div>
+</body>
+</html>
