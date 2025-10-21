@@ -87,6 +87,11 @@
       margin-bottom: 1.25rem;
     }
 
+    .resume-subheader {
+      display: flex;
+      justify-content: space-between;
+    }
+
     .skills {
       display: flex;
       gap: 0.5rem;
@@ -109,7 +114,6 @@
         website: 'nirmal.meka.la',
         email: 'nirmal@meka.la',
         address: 'Minneapolis, MN',
-        phone: prompt('I use this prompt to enter my phone number without putting it in the code - (###) ###-#### format')
       },
       experiences: [
         {
@@ -187,21 +191,28 @@ share their custom reports with other users.`,
 </head>
 
 <body class="hidden">
-  <div id="page" class="full-width" x-data="{ resumeData }">
+  <div id="page" class="full-width" x-data="{ resumeData, phone: '', phoneEntered: false}">
     <main class="resume">
 
       <section class="resume-section resume-header">
         <div>
           <h1>Nirmal Mekala (he/him)</h1>
         </div>
-        <div class="resume-contact">
-          <span x-text="resumeData.info.website"></span>
-          <span> • </span>
-          <span x-text="resumeData.info.email"></span>
-          <span> • </span>
-          <span x-text="resumeData.info.phone"></span>
-          <span> • </span>
-          <span x-text="resumeData.info.address"></span>
+        <div class="resume-subheader">
+          <div class="resume-contact">
+            <span x-text="resumeData.info.website"></span>
+            <span> • </span>
+            <span x-text="resumeData.info.email"></span>
+            <span> • </span>
+            <template x-if="phoneEntered && phone">
+              <span x-text="phone + ' • '"></span>
+            </template>
+            <span x-text="resumeData.info.address"></span>
+          </div>
+          <div>
+            <button class="no-print" x-on:click="phone = prompt('For privacy, I don’t include my phone number on GitHub, but this button allows me to set it for printing.'); phoneEntered = true" x-text="phoneEntered && phone ? 'Update phone' : 'Add phone'"></button>
+            <button class="no-print" x-on:click="window.print()">Print</button>
+          </div>
         </div>
       </section>
 
