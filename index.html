@@ -210,7 +210,7 @@ share their custom reports with other users.`,
             <span x-text="resumeData.info.address"></span>
           </div>
           <div>
-            <button class="no-print" x-on:click="phone = prompt('For privacy, I don’t include my phone number on GitHub, but this button allows me to set it for printing.'); phoneEntered = true" x-text="phoneEntered && phone ? 'Update phone' : 'Add phone'"></button>
+            <button class="no-print" x-on:click="phone = prompt('For privacy, I don’t include my phone number on GitHub, but this button allows me to set it for printing. Use (###) ###-##### format.'); phoneEntered = true" x-text="phoneEntered && phone ? 'Update phone' : 'Add phone'"></button>
             <button class="no-print" x-on:click="window.print()">Print</button>
           </div>
         </div>
